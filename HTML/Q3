@@ -1,1 +1,151 @@
+QUESTION 3:
+Imagine you are building a personal portfolio website. Design a web page layout that
+includes a header, a navigation menu, a main content area for displaying your projects
+and a footer. Explain how you would structure the HTML code and apply CSS styles to
+achieve the desired layout and visual design.
 
+ANSWER:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lakshana's Portfolio</title>
+  <style>
+    /* Reset default spacing */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body and layout */
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 30px 0;
+      text-align: center;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: #444;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin: 10px 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    /* Main content */
+    main {
+      padding: 40px;
+    }
+
+    section#projects {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin: 20px 0;
+    }
+
+    .project-card h3 {
+      color: #007acc;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Lakshana S</h1>
+    <p>B.Sc. CS | Web Developer | Coder </p>
+  </header>
+
+  <!-- Navigation Menu -->
+  <nav>
+    <ul>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content Area -->
+  <main>
+    <section id="projects">
+      <h2>My Projects</h2>
+
+      <div class="project-card">
+        <h3>WriteMate AR</h3>
+        <p>An AR app to help children with learning disabilities improve handwriting using animated letter tracing and voice guidance.</p>
+      </div>
+
+      <div class="project-card">
+        <h3>EchoBoard</h3>
+        <p>An AI-powered real-time meeting summarizer and visualizer using AR and accessibility tools.</p>
+      </div>
+
+      <div class="project-card">
+        <h3>Own website eco friendly</h3>
+        <p>I personally created a own website for eco-friendly and eco-friendly products to buy</p>
+      </div>
+
+      <div class="project-card">
+        <h3>DBMS </h3>
+        <p>Airlines management system</p>
+      </div>
+
+      <!-- Add more project cards as needed -->
+
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Lakshana S | All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
+
+OUTPUT:
+in the screenshot page
