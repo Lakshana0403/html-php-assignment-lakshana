@@ -1,0 +1,13 @@
+QUESTION:
+Predict the output of the following snippet:
+$this = “this”; $that = “that”; $the_other = 2.2000000000;
+print(“$this,$not_set,$that+$the_other”);
+
+ANSWER:
+<?php
+$myThis = "this";
+$that = "that";
+$the_other = 2.2;
+echo "{$myThis}, {$that}, {$the_other}";
+?>
+
