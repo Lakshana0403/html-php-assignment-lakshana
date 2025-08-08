@@ -1,0 +1,93 @@
+24. Write a PHP script to manipulate the strings with all the string functions.
+
+ANSWER:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PHP String Functions Example</title>
+</head>
+<body>
+
+<h2>String Manipulation in PHP</h2>
+
+<?php
+// Original string
+$text = " Hello, PHP World! Welcome to String Functions. ";
+
+echo "<strong>Original String:</strong> '$text' <br><br>";
+
+// 1. trim()
+echo "1. <strong>trim():</strong> '" . trim($text) . "'<br>";
+
+// 2. strlen()
+echo "2. <strong>strlen():</strong> " . strlen($text) . "<br>";
+
+// 3. strtoupper()
+echo "3. <strong>strtoupper():</strong> " . strtoupper($text) . "<br>";
+
+// 4. strtolower()
+echo "4. <strong>strtolower():</strong> " . strtolower($text) . "<br>";
+
+// 5. ucfirst()
+echo "5. <strong>ucfirst():</strong> " . ucfirst(trim($text)) . "<br>";
+
+// 6. ucwords()
+echo "6. <strong>ucwords():</strong> " . ucwords(trim($text)) . "<br>";
+
+// 7. strrev()
+echo "7. <strong>strrev():</strong> " . strrev($text) . "<br>";
+
+// 8. strpos()
+echo "8. <strong>strpos('World'):</strong> " . strpos($text, "World") . "<br>";
+
+// 9. str_replace()
+echo "9. <strong>str_replace('PHP', 'Java'):</strong> " . str_replace("PHP", "Java", $text) . "<br>";
+
+// 10. substr()
+echo "10. <strong>substr():</strong> " . substr($text, 7, 10) . "<br>";
+
+// 11. explode()
+$words = explode(" ", trim($text));
+echo "11. <strong>explode():</strong> ";
+print_r($words);
+echo "<br>";
+
+// 12. implode()
+$joined = implode("-", $words);
+echo "12. <strong>implode():</strong> " . $joined . "<br>";
+
+// 13. str_repeat()
+echo "13. <strong>str_repeat('PHP', 3):</strong> " . str_repeat("PHP ", 3) . "<br>";
+
+// 14. md5()
+echo "14. <strong>md5():</strong> " . md5($text) . "<br>";
+
+// 15. sha1()
+echo "15. <strong>sha1():</strong> " . sha1($text) . "<br>";
+
+?>
+
+</body>
+</html>
+
+OUTPUT:
+String Manipulation in PHP
+Original String: ' Hello, PHP World! Welcome to String Functions. '
+
+1. trim(): 'Hello, PHP World! Welcome to String Functions.'
+2. strlen(): 48
+3. strtoupper(): HELLO, PHP WORLD! WELCOME TO STRING FUNCTIONS.
+4. strtolower(): hello, php world! welcome to string functions.
+5. ucfirst(): Hello, PHP World! Welcome to String Functions.
+6. ucwords(): Hello, PHP World! Welcome To String Functions.
+7. strrev(): .snoitcnuF gnirtS ot emocleW !dlroW PHP ,olleH
+8. strpos('World'): 12
+9. str_replace('PHP', 'Java'): Hello, Java World! Welcome to String Functions.
+10. substr(): PHP World
+11. explode(): Array ( [0] => Hello, [1] => PHP [2] => World! [3] => Welcome [4] => to [5] => String [6] => Functions. )
+12. implode(): Hello,-PHP-World!-Welcome-to-String-Functions.
+13. str_repeat('PHP', 3): PHP PHP PHP
+14. md5(): 92ffeb524260175e79a66acf50c8583c
+15. sha1(): 5eeee633b68962826dd81c75ecd028171b0cf7df
+
+
