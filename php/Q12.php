@@ -24,7 +24,5 @@ if ($marks >= 75) {
 ?>
 
 OUTPUT:
-Sample Input
-95
 Your Output
 Grade: Second Class
