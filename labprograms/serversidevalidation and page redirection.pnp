@@ -1,0 +1,133 @@
+🔧 Step 1: Create Database & Table in phpMyAdmin
+
+1. Start **XAMPP** (Apache + MySQL).
+2. Go to `http://localhost/phpmyadmin`.
+3. Run this SQL:
+
+```sql
+CREATE DATABASE mini_project;
+
+USE mini_project;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
+-- Insert a test user (password = "12345")
+INSERT INTO users (username, password) 
+VALUES ('testuser', MD5('12345'));
+```
+📄 Step 2: Create `db.php` (Database Connection)
+
+```php
+<?php
+$host = "localhost";
+$user = "root";   // default XAMPP user
+$pass = "";       // default XAMPP password is empty
+$dbname = "mini_project";
+
+$conn = mysqli_connect($host, $user, $pass, $dbname);
+
+if (!$conn) {
+    die("Database Connection Failed: " . mysqli_connect_error());
+}
+?>
+```
+
+---
+
+### 📄 Step 3: Create `login.php`
+
+```php
+<?php
+session_start();
+require 'db.php';
+
+$error = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
+
+    if (empty($username) || empty($password)) {
+        $error = "⚠️ All fields are required!";
+    } else {
+        // Validate user from database
+        $sql = "SELECT * FROM users WHERE username=? AND password=MD5(?)";
+        $stmt = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($stmt, "ss", $username, $password);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+
+        if (mysqli_num_rows($result) == 1) {
+            $_SESSION['username'] = $username;
+            header("Location: welcome.php");
+            exit;
+        } else {
+            $error = "❌ Invalid username or password!";
+        }
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+</head>
+<body>
+    <h2>Login</h2>
+    <?php if (!empty($error)) echo "<p style='color:red;'>$error</p>"; ?>
+
+    <form method="POST" action="">
+        <label>Username:</label><br>
+        <input type="text" name="username"><br><br>
+
+        <label>Password:</label><br>
+        <input type="password" name="password"><br><br>
+
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>
+```
+
+---
+
+### 📄 Step 4: Create `welcome.php`
+
+```php
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit;
+}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome</title>
+</head>
+<body>
+    <h1>🎉 Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
+    <p>You have successfully logged in.</p>
+    <a href="logout.php">Logout</a>
+</body>
+</html>
+```
+
+---
+
+### 📄 Step 5: Create `logout.php`
+
+```php
+<?php
+session_start();
+session_destroy();
+header("Location: login.php");
+exit;
+```
