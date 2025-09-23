@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lakshana | Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: Arial, sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+    }
+
+ /* Sticky Navigation Bar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #111;
+  z-index: 999;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.navbar nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 1rem;
+  gap: 30px;
+}
+
+.navbar nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.navbar nav ul li a:hover {
+  color: #00e676;
+  background-color: #222;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* Make content start after navbar */
+section {
+  padding-top: 100px;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hero Section */
+.hero {
+  height: 50vh;
+  background: url("D:\Personal Portfolio\image\n.jpg") no-repeat center center/cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(17, 63, 103, 0.6); /* Dark blue overlay */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.hero-content h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.highlight {
+  color: #DFF2EB;
+  font-weight: bold;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #001F3F;
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #003366;
+}
+
+
+    /* About Section */
+    .about-section {
+      background: #c4a484;
+      padding: 100px 50px;
+      color: #3a2f1c;
+      min-height: 100vh;
+    }
+
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 50px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-img img {
+      width: 300px;
+      height: auto;
+      border-radius: 30px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .about-text {
+      max-width: 600px;
+    }
+
+    .about-text h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .about-text p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+   /* Skills Section */
+.skills-section {
+  background-color: white;
+  padding: 80px 30px;
+  text-align: center;
+}
+
+.skills-section h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: black;
+}
+
+/* Scroll wrapper (horizontal scroll only) */
+.skills-scroll-wrapper {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 0 10px;
+}
+
+/* Inner flex container */
+.skills-scroll {
+  display: inline-block;
+  white-space: nowrap;
+  padding-bottom: 10px;
+}
+
+/* Individual skills */
+.skill {
+  display: inline-block;
+  margin: 0 10px;
+  background-color: #001F3F;
+  color: white;
+  font-weight: bold;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  border-radius: 50%;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.skill:hover {
+  transform: scale(1.1);
+}
+
+#languages {
+  padding: 60px 20px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.language-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.language-card {
+  background-color: #c4a484;
+  border-radius: 15px;
+  padding: 20px;
+  width: 260px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.language-card:hover {
+  transform: translateY(-5px);
+}
+
+.language-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.language-card h3 {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.language-card p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+#internship {
+  padding: 60px 20px;
+  background:#34699A;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+#internship h2 {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.internship-card {
+  background-color: white;
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 800px;
+  margin: auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.internship-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.internship-header h3 {
+  font-size: 1.8rem;
+  color: #00796b;
+  margin-bottom: 5px;
+}
+
+.internship-header .role {
+  font-weight: 600;
+  color: #444;
+}
+
+.internship-header .duration {
+  font-style: italic;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.internship-details ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: left;
+}
+
+.internship-details li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #333;
+  padding-left: 10px;
+  position: relative;
+}
+
+.internship-details li::before {
+  content: '✔️';
+  position: absolute;
+  left: -25px;
+}
+
+.internship-content {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap; /* responsive: stacks on small screens */
+}
+
+.internship-image img {
+  width: 220px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.internship-text {
+  flex: 1;
+}
+
+
+.quotes-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 60px 20px;
+  background: url("D:/Personal Portfolio/image/internship.jpg") no-repeat center center/cover;
+  background-attachment: fixed;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.quotes-container::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* Optional dark overlay for contrast */
+  z-index: 0;
+}
+
+.quote-box {
+  width: 300px;
+  padding: 25px;
+  border-radius: 15px;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quote-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Individual box background colors */
+.box1 {
+  background-color: #113F67;
+}
+
+.box2 {
+  background-color: #34699A;
+}
+
+.box3 {
+  background-color: #58A0C8;
+}
+
+.quote-box p {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.quote-box h4 {
+  font-size: 1rem;
+  text-align: right;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+
+
+/* Background Colors */
+.box1 {
+  background-color: #113F67;
+}
+
+.box2 {
+  background-color: #34699A;
+}
+
+.box3 {
+  background-color: #58A0C8;
+}
+
+
+/* ===== Education Section ===== */
+#education {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+}
+
+#education h2 {
+  text-align: center;
+  font-size: 2.8em;
+  margin-bottom: 40px;
+  color: #222;
+  font-weight: bold;
+}
+
+.education-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 900px;
+  margin: 30px auto;
+  background: #ffffff;
+  padding: 25px 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.education-card:hover {
+  transform: translateY(-5px);
+}
+
+.education-image img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+  background: #fff;
+}
+
+.education-details {
+  flex: 1;
+}
+
+.education-details h3 {
+  color: #00695c;
+  font-size: 1.6em;
+  margin-bottom: 5px;
+}
+
+.education-details p {
+  font-size: 1.1em;
+  color: #444;
+}
+
+.education-details p.italic {
+  font-style: italic;
+  color: #666;
+}
+
+.education-details ul {
+  margin-top: 10px;
+  padding-left: 20px;
+  line-height: 1.6;
+}
+
+.education-details ul li {
+  list-style-type: disc;
+  font-size: 1em;
+  color: #555;
+}
+/* Stylish Contact Section */
+.contact-section {
+  background: linear-gradient(to right, #e0f7fa, #f9fbe7);
+  padding: 80px 20px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.contact-container {
+  max-width: 700px;
+  margin: auto;
+}
+
+.contact-section h2 {
+  font-size: 2.8em;
+  color: #0d47a1;
+  margin-bottom: 10px;
+}
+
+.contact-tagline {
+  font-size: 1.2em;
+  color: #444;
+  margin-bottom: 40px;
+}
+
+.contact-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.contact-item {
+  background-color: #ffffff;
+  padding: 15px 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 80%;
+  max-width: 400px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.contact-item span {
+  font-size: 1.5em;
+}
+
+.social-links {
+  margin-top: 40px;
+}
+
+.social-links a img {
+  width: 40px;
+  margin: 0 15px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-links a img:hover {
+  transform: scale(1.2);
+  filter: brightness(1.2);
+}
+
+    /* Responsive */
+    @media screen and (max-width: 768px) {
+      .about-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .about-img img {
+        width: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#internship">Internship</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+<!-- Hero Section -->
+<body background="D:\Personal Portfolio\image\bag.jpg">
+<section id="home" class="hero">
+  <div class="hero-content">
+    <h1>Hi there! My name is <span class="highlight">Lakshana</span></h1>
+    <h2>I'm a <span class="highlight">B.Sc. Computer Science Student</span></h2>
+    <a href="C:\Users\Laksshana S\OneDrive\college details\Resume\LAKSHANA S (2).pdf" download="Lakshana_Resume.pdf" class="btn">
+      Download My CV
+    </a>
+  </div>
+</section>
+</body>
+
+
+  <!-- About Me Section -->
+  <section id="about" class="about-section">
+    <div class="about-container">
+      <div class="about-img">
+        <img src="D:\Personal Portfolio\image\logo.jpg" alt="Lakshana photo" />
+      </div>
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p>Hi! I’m Lakshana, a B.Sc. Computer Science student passionate about design, technology, and innovation. I love creating beautiful, functional applications and have a growing interest in UX/UI, AR/VR, and full-stack development.</p>
+        <p>I enjoy solving real-world problems through tech, whether it's developing AR educational tools or optimizing user experience. My journey combines creativity with logic—always eager to learn and build!</p>
+        <p><strong>Let’s work together!</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- My Skills Section -->
+  <section id="skills" class="skills-section">
+    <h2>My skills</h2>
+    <div class="skills-container">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JAVA</div>
+      <div class="skill">JS</div>
+      <div class="skill">PYTHON</div>
+      <div class="skill">CCST</div>
+      <div class="skill">DBMS</div>
+    </div>
+  </section>
+
+<!-- Languages Known Section -->
+<section id="languages">
+  <h2>Languages Known</h2>
+  <div class="language-container">
+
+    <div class="language-card">
+      <img src="D:\Personal Portfolio\image\english.jpg" alt="English">
+      <h3>English</h3>
+      <p>Fluent in reading, writing, and speaking. Used in academics and professional communication.</p>
+    </div>
+
+    <div class="language-card">
+      <img src="D:\Personal Portfolio\image\tamilnadu.jpg" alt="Tamil">
+      <h3>Tamil</h3>
+      <p>Native language. Comfortable in all forms including formal and informal conversation.</p>
+    </div>
+
+    <div class="language-card">
+      <img src="D:\Personal Portfolio\image\japan.jpg" alt="Hindi">
+      <h3>Japanese </h3>
+      <p>Can understand and communicate at a basic to intermediate level.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Internship Section -->
+<section id="internship">
+  <h2>Internship Experience</h2>
+  <div class="internship-card">
+    <div class="internship-content">
+      <div class="internship-image">
+        <img src="D:\Personal Portfolio\image\elgi.jpg" alt="Internship Image">
+      </div>
+      <div class="internship-text">
+        <div class="internship-header">
+          <h3>Elgi Equipments Ltd</h3>
+          <div class="role">Manual Tester Intern</div>
+          <div class="duration">Aug 2024 – Nov 2024</div>
+        </div>
+        <div class="internship-details">
+          <ul>
+            <li>Tested air compressor products (Unit, Celsius).</li>
+            <li>Used tools like Bookstack, GitHub, Power Apps.</li>
+            <li>Worked with Agile/Scrum methodology.</li>
+            <li>Documented and tracked bugs effectively.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="education">
+  <h2>Education</h2>
+
+  <!-- College Card -->
+  <div class="education-card">
+    <div class="education-image">
+      <img src="D:\Personal Portfolio\image\download (1).jpeg" alt="College Logo">
+    </div>
+    <div class="education-details">
+      <h3>Krishnammal College for Women, Coimbatore</h3>
+      <p><strong>B.Sc. Computer Science</strong></p>
+      <p class="italic">Expected Graduation: May 2026</p>
+      <ul>
+        <li>CGPA: <strong>8.7%</strong></li>
+        <li>Club: ED cell - IIC | Core Leader</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- School Card -->
+  <div class="education-card">
+    <div class="education-image">
+      <img src="D:\Personal Portfolio\image\download.jpeg" alt="School Logo">
+    </div>
+    <div class="education-details">
+      <h3>Cheran Metric Hr Sec School, Karur</h3>
+      <p><strong>HSC – Computer Science</strong></p>
+      <p class="italic">Graduated: April 2023</p>
+      <ul>
+        <li>Percentage: <strong>78%</strong></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="quotes-container">
+  <div class="quote-box box1">
+    <p>"If everything was perfect, you would never learn, and you would never grow."</p>
+    <h4>- Beyoncé</h4>
+  </div>
+  <div class="quote-box box2">
+    <p>"I don't chase, I attract. What's meant for me, will simply find me."</p>
+    <h4>- Kendall Jenner</h4>
+  </div>
+  <div class="quote-box box3">
+    <p>“Everything you lose is a step you take.”</p>
+    <h4>- Taylor Swift</h4>
+  </div>
+</section>
+
+<section id="contact" class="contact-section">
+  <div class="contact-container">
+    <h2>Contact Me 📬</h2>
+    <p class="contact-tagline">Let’s connect! I’d love to hear from you.</p>
+
+    <div class="contact-box">
+      <div class="contact-item">
+        <span>📧</span>
+        <p><strong>Email:</strong> slakshana92@gmail.com </p>
+      </div>
+      <div class="contact-item">
+        <span>📞</span>
+        <p><strong>Phone:</strong> +91 9578336792</p>
+      </div>
+      <div class="contact-item">
+        <span>📍</span>
+        <p><strong>Location:</strong> Coimbatore, Tamil Nadu</p>
+      </div>
+    </div>
+
+    <div class="social-links">
+      <a href="https://github.com/"><img src="D:\Personal Portfolio\image\git.jpeg" alt="GitHub" title="GitHub"></a>
+      <a href="https://www.linkedin.com/in/lakshana-s-05297b285/"><img src="D:\Personal Portfolio\image\linkdin.png" alt="LinkedIn" title="LinkedIn"></a>
+    </div>
+  </div>
+</section>
+
+
+
+
+</body>
+</html>
